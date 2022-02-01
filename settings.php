@@ -1,0 +1,7 @@
+<?php
+
+$SEPIDAR_ADDRESS = '84.241.21.125';
+$SEPIDAR_PORT = '8080';
+$SEPIDAR_USERNAME = 'user';
+$SEPIDAR_PASSWORD = 'Sepidar@321';
+

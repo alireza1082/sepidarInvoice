@@ -17,7 +17,7 @@ function get_url($method_name) {
 
 function send_invoice($data){
 	global $REQUEST_HEADERS;
-    $url = get_url('PriceNoteList');
+    $url = get_url('RegisterInvoice');
 	$ivoice_id = $data['number'];
 	$date = $data['date'];
 	$product_id = $data['product_id'];
@@ -55,10 +55,9 @@ function send_invoice($data){
     $body = wp_remote_retrieve_body($req);
 }
 
-function send_exit(){
+function send_exit($invoice_id){
 	global $REQUEST_HEADERS;
     $url = get_url('RegisterInventorydelivery');
-    $invoice_id = 220;
 	$body = array(
 			"invoicenumber" : $invoice_id,
 			"saletypenumner" : 2

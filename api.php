@@ -15,14 +15,14 @@ function get_url($method_name) {
     return $BASE_URL . '/' . $method_name;
 }
 
-function send_invoice(){
+function send_invoice($data){
 	global $REQUEST_HEADERS;
     $url = get_url('PriceNoteList');
-	$ivoice_id = 220;
-	$date = "2022-01-29";
-	$product_id = "90000065";
-	$fee = 1000000;
-	$quantity = 1;
+	$ivoice_id = $data['number'];
+	$date = $data['date'];
+	$product_id = $data['product_id'];
+	$fee = $data['fee'];
+	$quantity = $['quantity'];
     $body = [
     {
         "sourceid": 0,

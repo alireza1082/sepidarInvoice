@@ -15,14 +15,14 @@ function get_url($method_name) {
     return $BASE_URL . '/' . $method_name;
 }
 
-function send_invoice($data){
+function send_invoice($body){
 	global $REQUEST_HEADERS;
     $url = get_url('RegisterInvoice');
-	$ivoice_id = $data['number'];
+	/*$ivoice_id = $data['number'];
 	$date = $data['date'];
 	$product_id = $data['product_id'];
 	$fee = $data['fee'];
-	$quantity = $['quantity'];
+	$quantity = $data['quantity'];
     $body = [
     {
         "sourceid": 0,
@@ -38,7 +38,7 @@ function send_invoice($data){
         "currencyRate": 1,
         "stockCode": 101
     }
-	]
+	]*/
 	$args = array(
         'headers' => $REQUEST_HEADERS,
 		'body' => $body,

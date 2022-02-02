@@ -43,9 +43,10 @@ function send_invoice($data){
         'headers' => $REQUEST_HEADERS,
 		'body' => $body,
         'timeout' => 20,
+		'method' => 'POST',
     );
 
-    $req = wp_remote_get($url, $args);
+    $req = wp_remote_post($url, $args);
     if (is_wp_error($req)) {
         error_log('Failed to send invoice');
         error_log(print_r($req->errors, true));
@@ -53,6 +54,7 @@ function send_invoice($data){
     }
 
     $body = wp_remote_retrieve_body($req);
+	return $body['message'];
 }
 
 function send_exit($invoice_id){
@@ -65,9 +67,10 @@ function send_exit($invoice_id){
 	$args = array(
         'headers' => $REQUEST_HEADERSi,
 		'body' => $body,
-        'timeout' => 20,
+        'method' => 'POST',
+		'timeout' => 20,
     );
-    $req = wp_remote_get($url, $args);
+    $req = wp_remote_post($url, $args);
     if (is_wp_error($req)) {
         error_log('Failed to send exit');
         error_log(print_r($req->errors, true));
@@ -75,4 +78,5 @@ function send_exit($invoice_id){
     }
 
     $body = wp_remote_retrieve_body($req);
+	return $body['message'];
 }

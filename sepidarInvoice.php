@@ -39,7 +39,7 @@ function order_processing($order_id) {
 				)
 		array_push($body, $data);
 	}
-	send_invoice($body);
+	send_invoice(json_encode($body));
 }
 
 add_action( 'woocommerce_order_status_processing', 'order_processing', 10, 1);
